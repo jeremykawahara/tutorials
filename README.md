@@ -1,2 +1,2 @@
-# tuts
+# tutorials
 for short tutorials
