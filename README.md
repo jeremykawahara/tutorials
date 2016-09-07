@@ -1,2 +1,2 @@
 # tutorials
-for short tutorials
+For short tutorials
