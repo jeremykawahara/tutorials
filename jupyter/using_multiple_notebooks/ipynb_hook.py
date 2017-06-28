@@ -1,4 +1,7 @@
+# The original code was written here:
 # http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Importing%20Notebooks.ipynb
+#
+# I (Jeremy) took only the parts we really need and avoid the "Notebook Finder" and "hooks".
 
 import io, os, sys, types
 from IPython import get_ipython
@@ -68,26 +71,3 @@ class NotebookLoader(object):
         
         return mod
     
-    
-# Don't think this is needed anymore.
-class NotebookFinder(object):
-    """Module finder that locates Jupyter Notebooks"""
-    def __init__(self):
-        self.loaders = {}
-
-    def find_module(self, fullname, path=None):
-        nb_path = find_notebook(fullname, path)
-        if not nb_path:
-            return
-
-        key = path
-        if path:
-            # lists aren't hashable
-            key = os.path.sep.join(path)
-
-        if key not in self.loaders:
-            self.loaders[key] = NotebookLoader(path)
-        return self.loaders[key]
-
-    
- 
